@@ -62,9 +62,10 @@ var MainController = function() {
     });
 
     self.appEventBus.on("userJoined", function(username) {
-	self.homeModel.addUser(username + "te has conectado al chat.");
+	self.homeModel.addUser(username);
 
-	self.homeModel.addChat({sender: "", message: username + " se ha conectado al chat." });
+	self.homeModel.addChat({sender: "", message: username + " te has conectado al chat." });
+	self.homeModel.addChat({addressee: "", message: username + " se ha conectado al chat." });    
     });
 
     self.appEventBus.on("userLeft", function(username) {

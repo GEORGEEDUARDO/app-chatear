@@ -44,11 +44,11 @@ var MainController = function() {
     });
 
     self.appEventBus.on("loginNameBad", function(name) {
-	self.loginModel.set("error", "Invalid Name");
+	self.loginModel.set("error", "Escriba su Nick para Ingresar");
     });
 
     self.appEventBus.on("loginNameExists", function(name) {
-	self.loginModel.set("error", "Name already exists");
+	self.loginModel.set("error", "Este Nick se esta Usando");
     });
 
     self.appEventBus.on("usersInfo", function(data) {
@@ -64,13 +64,13 @@ var MainController = function() {
     self.appEventBus.on("userJoined", function(username) {
 	self.homeModel.addUser(username);
 
-	self.homeModel.addChat({sender: "", message: username + " joined room." });
+	self.homeModel.addChat({sender: "", message: username + " se ha conectado al chat." });
     });
 
     self.appEventBus.on("userLeft", function(username) {
 	self.homeModel.removeUser(username);
 
-	self.homeModel.addChat({sender: "", message: username + " left room." });
+	self.homeModel.addChat({sender: "", message: username + " se ha desconectado del chat." });
     });
 
     self.appEventBus.on("chatReceived", function(chat) {
